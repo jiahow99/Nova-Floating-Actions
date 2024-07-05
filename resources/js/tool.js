@@ -4,10 +4,10 @@ Nova.booting((app, store) => {
 	Nova.inertia('FloatingActions', Tool)
 
 	// Load
-	window.onload = () => {
+	window.addEventListener('load', () => {
 		console.log('Floating action loaded')
 		initFloatingAction()
-	}
+	})
 })
 
 function initFloatingAction() {
@@ -15,7 +15,7 @@ function initFloatingAction() {
 	const observer = new MutationObserver(function (mutations) {
 		mutations.forEach(function (mutation) {
 			if (!isDetailPage()) return
-			
+
 			let action_header = document.querySelector('div[resource]')
 			if (!action_header) return
 
